@@ -2,12 +2,14 @@
 
 ### AWS Service duration:2021-08-30~2021-09-05
 
-##how to use eCloud Vally API
+## how to use eCloud Vally API
 
 Servers:`https://tsdczqspc3.execute-api.ap-northeast-1.amazonaws.com/dev`
 
 1. lineItem/UnblendedCost grouping by product/productname
-   `POST` `/billing/total/`
+  
+  	`POST` `/billing/total/`
+   
    parameters:
    `{lineitem/usageaccountid: string}`
 
@@ -32,7 +34,9 @@ Content-Type: application/json
 ```
 
 2. Get daily lineItem/UsageAmount grouping by product/productname
+
    `POST` `/billing/daily/`
+   
    parameters:
    `{lineitem/usageaccountid: string}`
 
@@ -56,16 +60,16 @@ Content-Type: application/json
 }
 
 ```
-##eCloud Vally API architecture
+## eCloud Vally API architecture
 
-[backend architecutre photo](https://drive.google.com/file/d/1dW38-sR3TLFc_rf_-HtQls8OY4S227TJ/view?usp=sharing "backend architecutre")
+[backend architecture photo](https://drive.google.com/file/d/1dW38-sR3TLFc_rf_-HtQls8OY4S227TJ/view?usp=sharing "backend architecutre")
 
 主要使用flask架構建置API,並參考zappa serverless 部署在lambda上。
 
 參考連結：[Deploy a Serverless Web App on AWS Lambda with Zappa](https://pythonforundergradengineers.com/deploy-serverless-web-app-aws-lambda-zappa.html "Deploy a Serverless Web App on AWS Lambda with Zappa")
 
-##Database schema
-###billing
+## Database schema
+### billing
 
 | Column        | Schema  |  Null or not |
 | --------   | ----- | :----:  |
@@ -80,7 +84,7 @@ Content-Type: application/json
 |product/ProductName      | varchar(100) | DEFAULT NULL
 
 
-###index
+### index
 `lineitem/usageaccountid`,`product/ProductName`
 
 ### Future optimization direction
@@ -88,6 +92,7 @@ Content-Type: application/json
 
 ## Billing Analysis
 [billing insight](https://public.tableau.com/app/profile/ray.hsieh/viz/demo_report_16303192964010/ecloud_final_report?publish=yes "billing insight")
+
 視覺化分析放在Tableau community,詳細的內容會再另外報告。
 
 
